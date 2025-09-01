@@ -1,0 +1,22 @@
+<%- include("partials/header") -%>
+    <div class="box">
+        <h1 id="heading"><%=listTitle%></h1>
+    </div>
+    <div class="box">
+        <% addTask.forEach((task)=>{ %>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name ="checkbox" onChange="this.form.submit()" value=<%=task._id%> >
+                <p><%=task.name%></p>
+            </div>
+            <input type="hidden" name="listName" value="<%= listTitle%>">
+        </form>
+        <%})%>
+
+        <form action="/" method="post">
+            <input type="text" name="task" autocomplete="off" placeholder="Enter new task">
+            <button type="submit" name="list" value="<%=listTitle%>">+</button>
+        </form>
+    </div>
+<%- include("partials/footer") -%>
+
