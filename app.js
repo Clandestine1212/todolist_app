@@ -14,7 +14,9 @@ let day=date.getDay();
 
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://ipurpleshootingstar_db_user:deployAtlas@cluster0.fs73mex.mongodb.net/todoListDB?retryWrites=true&w=majority&appName=Cluster0");
+const mongoURL = process.env.MONGODB_URI;
+
+mongoose.connect(mongoURL);
 
 const itemSchema = new mongoose.Schema({
     name:String
